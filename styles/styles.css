@@ -1,0 +1,467 @@
+@font-face {
+    font-family: 'AvenirRoman'; /* Name your font family */
+    src: url('../src/font/avenir_roman.otf');
+    src: url('../src/font/AvenirLTStd-Black.otf'); /* Locate the .ttf file within your directory*/
+  }
+
+  @font-face {
+    font-family: 'AvenirBlack'; /* Name your font family */
+    src: url('../src/font/AvenirLTStd-Black.otf'); /* Locate the .ttf file within your directory*/
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Avenir', sans-serif;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Left Panel */
+.left-panel {
+    background-color: #3c302f;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-between;
+    color: #fff;
+    position: relative;
+}
+
+.question-box {
+    box-sizing: border-box;
+    position: absolute;
+    width: 32vw;
+    height: 33vh;
+    left: auto;
+    top: 10vh;
+
+    background: #FEFEFE;
+    border: 6px solid #854342;
+    border-radius: 40px;
+}
+
+.question {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    text-align: center;
+    color: #854342;
+}
+
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    font-family: 'Avenir', sans-serif;
+    font-size: 16px;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    background-color: #FFF4EC;
+    border: 6px,solid,#854342;
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+    border-radius: 100px;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 42.7vw;
+    z-index: 999;
+    margin-left: -75px; /* Adjust to position buttons on the border */
+}
+
+.action-item {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    padding-left: 0.2vw;
+    padding-right: 0.2vw;
+    z-index: 999;
+    background-color: #FFF4EC;
+    border: 0;
+}
+
+#middle{
+    border: 6px,solid,#854342;
+    border-left: 0;
+    border-right: 0;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
+
+.action-item img {
+    width: 3.5vw;
+    height: auto;
+}
+
+/* Submit Button */
+.submit-btn {
+    box-sizing: border-box;
+    position: absolute;
+    width: 20vw;
+    height: 7.52vh;
+    left: 10vw;
+    top: 84vh;
+    background: #854342;
+    border: 4px solid #FEFEFE;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2vw;
+    line-height: 39px;
+    color: #FFFFFF;
+}
+
+.submit-btn:hover {
+    background-color: #a66157;
+}
+
+.submit-btn:active{
+    background-color: #3c302f;
+}
+
+.question-desc{
+    color: #854342;
+    padding: 0px 20px 15px 20px;
+    text-align: center;
+    font-size: 1vw;
+}
+
+.action-item:hover{
+    background-color:#a66157;
+}
+
+.action-item:active{
+    background-color: #3c302f;
+}
+
+/* Skip Question Link */
+.skip-link {
+    position: absolute;
+    width: 167px;
+    height: 29px;
+    left: 29vw;
+    bottom: 3vh;
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2vw;
+    line-height: 29px;
+    text-decoration-line: underline;
+    color: #FEFEFE;
+}
+
+.skip-link:hover{
+    color: #ff0000;
+}
+
+.skip-link:active{
+    color: #EFC379;
+}
+
+/* Right Panel */
+.right-panel {
+    background-color: #eee;
+    width: 60%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../src/img/bghutan.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+/* Gradient between solid color and image */
+
+.teddy-section {
+    position: relative;
+    text-align: center;
+}
+
+.teddy-img {
+    width: 25vw;
+    height: auto;
+}
+
+/* Teddy's status positioned to the top right */
+.teddy-status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgba(254, 254, 254, 0.8);
+    border: 4px solid #EFC379;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: 10px;
+
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.status-item span{
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.6667vw;
+    line-height: 2.832vh;
+}
+
+.status-item img {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+.teddy-health-bar {
+    margin-top: 20px;
+    font-size: 32px;
+}
+
+.health-bar {
+    background-color: #ccc;
+    height: 7px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.teddy-health-bar span.number{
+    font-size: 20px;
+}
+
+.health-bar-fill {
+    background-color: red;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.answer{
+    position: absolute;
+    width: 32vw;
+    height: 8.3vh;
+    left: -10px;
+    top: 37.1vh;
+
+    background: #FEFEFE;
+    border: 6px solid #854342;
+    border-radius: 15px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #3c302f;
+    color: #fff;
+}
+
+.answer-explanation {
+    position:absolute;
+    box-sizing: border-box;
+    width: 32vw;
+    height: auto;
+    left: -0.5vw;
+    top: 37vh;
+    background: #FEFEFE;
+    border: 6px solid #854342;
+    border-radius: 20px;
+    padding: 20px;
+    color: #854342;
+    display:none ;
+}
+
+/* ------- */
+@media (max-width: 960px) {
+    /* Adjust container to be more vertical */
+    .container {
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    /* Left Panel takes full width */
+    .left-panel {
+        position :absolute;
+        width: 100%;
+        top:50vh;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .right-panel {
+        display: flex;
+        position : absolute;
+        width: 100%;
+        height: 50vh;
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* Adjust question box size and center */
+    .question-box {
+        width: 90vw; /* Take up most of the screen width */
+        height: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 3vh;
+        border-radius: 20px;
+    }
+
+    .question-desc{
+        font-size: 1.6vw;
+    }
+
+    .answer{
+        position: absolute;
+        top: 20vh;
+        width: 90vw;
+        height: 6vh;
+    }
+
+    /* Adjust buttons (actions) to be centered below the bear */
+    .actions {
+        position: absolute;
+        top: -3vh;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-left: 0;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0px;
+        border-radius: 15px;
+        width: 40vw;
+        height: auto;
+        background-color: rgb(255 244 236/50%);
+        border: #854342 solid 4px;
+    }
+
+    .action-item {
+        padding: 4px 25px;
+        background-color: transparent;
+    }
+
+    /* Adjust submit button */
+    .submit-btn {
+        position: absolute;
+        top: 41vh;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 10px;
+        width: 60vw;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    /* Skip link adjust */
+    .skip-link {
+        position: relative;
+        left: 55%;
+        transform: translateX(-50%);
+        top: 22.3vh;
+        font-size: 18px;
+    }
+
+    /* Adjust the Teddy image size and its positioning */
+    .teddy-img {
+        width: 40vw;
+        height: auto;
+    }
+
+    #middle{
+        padding: 4px;
+        border: 4px,solid,#854342;
+        border-top: 0;
+        border-bottom: 0;
+        padding: 4px 20px;
+    }
+
+    .teddy-status {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: auto;
+        padding: 0.42vh;
+    }
+
+    .action-item img{
+        width: 4vw;
+    }
+}
+
+/* Intro Screen Styling */
+.intro-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #854342;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it stays on top of the game content */
+}
+
+.intro-image {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.start-game-btn {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    background-color: #FFE5D5;
+    color: #854342;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s ease;
+}
+
+.start-game-btn:hover {
+    background-color: #FFCCB3;
+}
+
+.start-game-btn:active {
+    background-color: #FFE5D5;
+}

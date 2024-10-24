@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teddy Quiz Game</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div id="intro-screen" class="intro-screen">
+        <img src="../src/img/Group 10.png" alt="Welcome to Teddy Land" class="intro-image">
+        <button id="start-game-btn" class="start-game-btn">Let's Play</button>
+    </div>
+    <main class="container">
+        <!-- Left Panel with Question and Action Buttons -->
+        <section class="left-panel">
+            <article class="question-box">
+                <h2 class="question">Question 1</h2>
+                <p class="question-desc">Great job! The correct answer is 98 because Dua buah kereta api bergerak pada jalur yang sama. 
+                    Masinis di masing-masing kereta melihat bahwa ada sebuah kereta bergerak menujunya. Masing-masing masinis kemudian 
+                    melakukan pengereman sehingga kecepatan masing-masing kereta berubah terhadap waktu seperti yang diberikan pada gambar 
+                    di samping. Nilai vs pada gambar memiliki nilai 30 m/s. Pengereman kedua kereta dimulai saat keduanya terpisah sejauh 196 m.
+                    Tentukan jarak antara kedua kereta ketika keduanya telah berhenti bergerak. **KJ 98**</p>
+                <textarea class="answer" id="answer" aria-label="Enter your answer" placeholder="Enter your answer"></textarea>
+                <div class="answer-explanation" id="answer-explanation" aria-label="Answer explanation">
+                    <p>This is where the explanation of the answer will appear.</p>
+                </div>
+            </article>
+            <section class="actions" aria-label="Action buttons">
+                <button class="action-item" aria-label="Feed Teddy an apple">
+                    <img src="../src/img/apple.png" alt="Food">
+                </button>
+                <button class="action-item" id="middle" aria-label="Make Teddy laugh">
+                    <img src="../src/img/happy-face.png" alt="Laugh">
+                </button>
+                <button class="action-item" aria-label="Give Teddy medicine">
+                    <img src="../src/img/medicine.png" alt="Pill">
+                </button>
+            </section>
+
+            <button id="submit-btn" class="submit-btn">Submit Answer</button>
+            <a href="#" id="skip-question" class="skip-link">Skip Question</a>
+        </section>
+
+        <!-- Right Panel with Teddy and Status -->
+        <aside class="right-panel">
+            <section class="teddy-section">
+                <section class="teddy-health-bar" aria-label="Teddy's health bar">
+                    <span class="bold-text">Teddy</span>
+                    <div class="health-bar">
+                        <div class="health-bar-fill"></div>
+                    </div>
+                    <span class="number">100/100</span>
+                </section>
+                <img src="../src/img/teddy.png" alt="Teddy Bear" class="teddy-img">
+            </section>
+        </aside>
+        <section class="teddy-status" aria-label="Teddy's status">
+            <div class="status-item">
+                <img src="../src/img/coin.png" alt="Coins"> <span>100</span>
+            </div>
+            <div class="status-item">
+                <img src="../src/img/apple.png" alt="Apple"> <span>98</span>
+            </div>
+            <div class="status-item">
+                <img src="../src/img/happy-face.png" alt="Laughter"> <span>100</span>
+            </div>
+            <div class="status-item">
+                <img src="../src/img/medicine.png" alt="Health"> <span>96</span>
+            </div>
+        </section>
+    </main>
+
+    <script src="../script/script.js"></script>    
+</body>
+</html>
