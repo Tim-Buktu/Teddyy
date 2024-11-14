@@ -177,6 +177,24 @@ function loadQuestion() {
     explanationBox.innerHTML = "";
 }
 
+// Function to update status items (coins, apples, laughter, health)
+function updateStatusItem(item, change) {
+    let itemElement = document.querySelector(`.status-item img[alt="${item}"]`).nextElementSibling;
+    let currentValue = parseInt(itemElement.textContent, 10);
+    let newValue = currentValue + change;
+
+    // Ensure the value doesn't go below 0 or above 100
+    if (newValue < 0) newValue = 0;
+    if (newValue > 100) {
+        alert("Action canceled! " + item + " cannot exceed 100.");
+        return; // Cancel the action if the new value exceeds 100
+    }
+
+    itemElement.textContent = newValue;
+
+    checkGameOver(); // Check if the game is over after updating any status item
+}
+
 // Load the first question when the page loads
 loadQuestion();
 

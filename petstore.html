@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Store</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            background-color: #3c3533;
+            color: white;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        .store {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .display {
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            cursor: pointer;
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-title {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+        .card-price {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 215, 0, 0.8);
+            color: black;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .buy-items {
+            background-color: #8b7d77;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: auto;
+        }
+        .buy-items:hover {
+            background-color: #9e8f88;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            margin: 20px 0;
+        }
+        .pet-card {
+            aspect-ratio: 1 / 1;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .coin-display {
+            position: absolute;
+            top: 20px;
+            right: 70px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .coin-icon {
+            color: gold;
+            margin-right: 5px;
+            font-size: 20px;
+        }
+        .pet-display {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40vw;
+            height: 40vh;
+        }
+        .pet-display img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .selected {
+            outline: 2px solid yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="store">
+            <h1>Pet Store</h1>
+            <div class="card-container">
+                <div class="card" data-background="cave" data-price="0">
+                    <img src="src/img/store/cave.png" alt="Cave">
+                    <div class="card-title">Cave</div>
+                </div>
+                <div class="card" data-background="waterfall" data-price="70">
+                    <img src="src/img/store/mountain1.png" alt="Waterfall">
+                    <div class="card-title">Mountain</div>
+                    <div class="card-price">🪙 70</div>
+                </div>
+                <div class="card" data-background="forest" data-price="50">
+                    <img src="src/img/store/forest.png" alt="Forest">
+                    <div class="card-title">Forest</div>
+                    <div class="card-price">🪙 50</div>
+                </div>
+            </div>
+            <hr>
+            <div class="card-container">
+                <div class="card pet-card" data-pet="misty" data-price="100">
+                    <img src="src/img/store/misty.png" alt="Misty">
+                    <div class="card-title">Misty</div>
+                    <div class="card-price">🪙 100</div>
+                </div>
+                <div class="card pet-card" data-pet="foxy" data-price="80">
+                    <img src="src/img/store/foxybetter.png" alt="Foxy">
+                    <div class="card-title">Foxy</div>
+                    <div class="card-price">🪙 80</div>
+                </div>
+                <div class="card pet-card" data-pet="hoggy" data-price="80">
+                    <img src="src/img/store/hoggy.png" alt="Hoggy">
+                    <div class="card-title">Hoggy</div>
+                    <div class="card-price">🪙 80</div>
+                </div>
+                <div class="card pet-card" data-pet="teddy" data-price="0">
+                    <img src="src/img/store/teddy.png" alt="Teddy">
+                    <div class="card-title">Teddy</div>
+                </div>
+            </div>
+            <button class="buy-items">Buy Items</button>
+        </div>
+        <div class="display">
+            <button class="close-btn">✕</button>
+            <div class="coin-display"><span class="coin-icon">🪙</span><span id="coin-count">100</span></div>
+            <div class="pet-display"></div>
+        </div>
+    </div>
+
+    <script>
+        const display = document.querySelector('.display');
+        const petDisplay = document.querySelector('.pet-display');
+        const coinDisplay = document.getElementById('coin-count');
+        const buyButton = document.querySelector('.buy-items');
+        let coins = 100;
+        let selectedItems = [];
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                if (card.dataset.background) {
+                    display.style.backgroundImage = `url('${card.querySelector('img').src}')`;
+                } else if (card.dataset.pet) {
+                    petDisplay.innerHTML = `<img src="${card.querySelector('img').src}" alt="${card.dataset.pet}">`;
+                }
+                
+                card.classList.toggle('selected');
+                const itemName = card.querySelector('.card-title').textContent;
+                if (selectedItems.includes(itemName)) {
+                    selectedItems = selectedItems.filter(item => item !== itemName);
+                } else {
+                    selectedItems.push(itemName);
+                }
+            });
+        });
+
+        buyButton.addEventListener('click', () => {
+            let totalCost = 0;
+            document.querySelectorAll('.card.selected').forEach(card => {
+                totalCost += parseInt(card.dataset.price);
+            });
+
+            if (totalCost > coins) {
+                alert("You don't have enough coins to buy these items!");
+            } else {
+                coins -= totalCost;
+                coinDisplay.textContent = coins;
+                document.querySelectorAll('.card.selected').forEach(card => {
+                    const priceTag = card.querySelector('.card-price');
+                    if (priceTag) {
+                        priceTag.remove();
+                    }
+                    card.classList.remove('selected');
+                    card.dataset.price = "0";
+                });
+                selectedItems = [];
+                alert(`Transaction successful! You spent ${totalCost} coins.`);
+            }
+        });
+
+        document.getElementById('closeBtn').addEventListener('click', function() {
+            const selectedCard = document.querySelector('.card.selected');
+            if (selectedCard) {
+                const background = selectedCard.getAttribute('data-background');
+                const pet = selectedCard.querySelector('img').src;
+                localStorage.setItem('selectedBackground', background);
+                localStorage.setItem('selectedPet', pet);
+            }
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Account</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+            background-color: #0B3B2D;
+        }
+        .image-section {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            display: none;
+        }
+        .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(11, 59, 45, 0.8), transparent);
+            z-index: 10;
+        }
+        .image-section img {
+            width: 96%;
+            height: 92%;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            position: absolute;
+            top: 4%;
+            left: 4%;
+        }
+        .image-text {
+            text-align: center;
+            position: relative;
+            bottom: -70vh;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 600;
+            z-index: 20;
+        }
+        .form-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            color: #e0e0e0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 0.25rem;
+        }
+        input[type="text"]::placeholder, input[type="email"]::placeholder, input[type="password"]::placeholder {
+            color: #a0a0a0;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .checkbox-group label {
+            margin-left: 0.5rem;
+            font-size: 0.875rem;
+        }
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: white;
+            color: #0B3B2D;
+            border: none;
+            border-radius: 0.25rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #f0f0f0;
+        }
+        a {
+            color: #e0e0e0;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: white;
+        }
+        @media (min-width: 1024px) {
+            .image-section {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <div class="image-overlay"></div>
+            <img src="gunung.jpg" alt="Mountain landscape with lake">
+            <div class="image-text">Make Learning Fun</div>
+        </div>
+        <div class="form-section">
+            <div class="form-container">
+                <h1>Create an Account</h1>
+                <p>Already have an account? <a href="#">Log In</a></p>
+                <form id="signup-form">
+                    <div class="form-group">
+                        <label for="pet-name">Your pet name</label>
+                        <input type="text" id="pet-name" placeholder="Enter your pet name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms&Conditions</a></label>
+                    </div>
+                    <button type="submit">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const petName = document.getElementById('pet-name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const termsAgreed = document.getElementById('terms').checked;
+
+            if (petName && email && password && termsAgreed) {
+                console.log('Form submitted:', { petName, email, password, termsAgreed });
+                // Here you would typically send this data to your server
+                alert('Account created successfully!');
+            } else {
+                alert('Please fill in all fields and agree to the terms.');
+            }
+        });
+    </script>
+</body>
+</html>
